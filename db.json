@@ -1,7 +1,7 @@
 {
     "bg": "https://images.unsplash.com/photo-1596301448365-edc4a9b2ac11?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80",
-    "title": "Só para maiores de 30",
-    "description": "Teste os seus conhecimentos sobre os anos 90 no Brasil e no mundo!",
+    "title": "Teste os seus conhecimentos sobre os anos 90 no Brasil e no mundo!",
+    "description": "Informe seu nome para começar",
     "questions": [
       {
         "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
