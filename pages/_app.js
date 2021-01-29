@@ -22,8 +22,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body {
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
   }
+
   #__next {
     flex: 1;
     display: flex;

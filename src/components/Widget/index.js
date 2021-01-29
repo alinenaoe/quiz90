@@ -8,14 +8,14 @@ const Widget = styled.div`
   overflow: hidden;
 
   h1, h2, h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0;
   }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1;
   }
@@ -31,10 +31,14 @@ Widget.Header = styled.header`
   * {
     margin: 0;
   }
+
+  h1 {
+    line-height: 1.2rem;
+  }
 `;
 
 Widget.Content = styled.div`
-  padding: 24px 32px 32px 32px;
+  padding: 40px 32px 32px 32px;
 
   & > *:first-child {
     margin-top: 0;
@@ -50,13 +54,22 @@ Widget.Content = styled.div`
   }
 `;
 
-Widget.Input = styled.input`
+Widget.Topic = styled.a`
+  outline: 0;
+  text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
-  width: 100%;
-  height: 40px;
-  background: none;
-  border: 1px solid ${({ theme }) => theme.colors.contrastText};
-  padding: 10px;
+  background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: .3s;
+  display: block;
+
+  &:hover,
+  &:focus {
+    opacity: .5;
+  }
 `;
 
 export default Widget;
