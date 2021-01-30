@@ -10,12 +10,16 @@ import QuizContainer from '../src/components/QuizContainer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import Button from '../src/components/Button';
 import LoadingWidget from '../src/components/LoadingWidget';
-// import QuizResult from '../src/components/QuizResult';
+import QuizResult from '../src/components/QuizResult';
+import AlternativesForm from '../src/components/AlternativesForm';
 
 function QuestionWidget({
-  question, questionIndex, totalQuestions, onSubmit,
+  question, questionIndex, totalQuestions, onSubmit, addResult,
 }) {
   const questionId = `question___${questionIndex}`;
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const isCorrect = selectedAlternative === question.answer;
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
   return (
     <Widget>
@@ -43,35 +47,47 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <form
+        <AlternativesForm
           onSubmit={(e) => {
             e.preventDefault();
-            onSubmit();
+            setIsConfirmed(true);
+            setTimeout(() => {
+              addResult(isCorrect);
+              onSubmit();
+              setIsConfirmed(false);
+              setSelectedAlternative(undefined);
+            }, 2000);
           }}
         >
-          {question.alternatives.map((alternative, alternativeindex) => {
-            const alternativeID = `alternative__${alternativeindex}`;
+          {question.alternatives.map((alternative, alternativeIndex) => {
+            const alternativeId = `alternative__${alternativeIndex}`;
             return (
               <Widget.Topic
                 as="label"
-                htmlFor={alternativeID}
+                htmlFor={alternativeId}
+                key={alternativeId}
+                data-selected={selectedAlternative === alternativeIndex}
+                data-status={isConfirmed && isCorrect ? 'SUCCESS' : 'ERROR'}
               >
                 <input
                   style={{
                     marginRight: '12px',
                   }}
-                  id={alternativeID}
+                  id={alternativeId}
                   name={questionId}
                   type="radio"
+                  onChange={() => setSelectedAlternative(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
-          <Button type="submit">
+          <Button type="submit" disabled={selectedAlternative === undefined}>
             Confirmar
           </Button>
-        </form>
+          {isCorrect && isConfirmed && <p>Certa resposta!</p>}
+          {!isCorrect && isConfirmed && <p>Errrrrrooooou!</p>}
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
@@ -85,10 +101,18 @@ const screenStates = {
 
 export default function QuizPage() {
   const [screenState, setScreenState] = useState(screenStates.LOADING);
-  const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [result, setResult] = useState(0);
+
+  const totalQuestions = db.questions.length;
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
+
+  function addResult(isCorrect) {
+    if (isCorrect) {
+      setResult(result + 1);
+    }
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -102,7 +126,9 @@ export default function QuizPage() {
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(questionIndex + 1);
     } else {
-      setScreenState(screenStates.RESULT);
+      setTimeout(() => {
+        setScreenState(screenStates.RESULT);
+      }, 2000);
     }
   }
 
@@ -117,6 +143,7 @@ export default function QuizPage() {
             questionIndex={questionIndex}
             totalQuestions={totalQuestions}
             onSubmit={handleSubmitQuiz}
+            addResult={addResult}
           />
         </QuizContainer>
       )}
@@ -129,8 +156,7 @@ export default function QuizPage() {
       {screenState === screenStates.RESULT && (
         <QuizContainer>
           <QuizLogo />
-          {/* <QuizResult /> */}
-          <p>RESULTADO DO QUIZ</p>
+          <QuizResult result={result} />
         </QuizContainer>
       )}
 

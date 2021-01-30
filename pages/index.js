@@ -44,6 +44,7 @@ export default function Home() {
                   name="nome"
                   value={name}
                   onChange={handleInputChange}
+                  placeholder="Nome do jogador"
                   spellcheck="false"
                   autoFocus
                 />
