@@ -5,11 +5,17 @@ const FooterWrapper = styled.footer`
   padding: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+
   img {
     width: 58px;
     margin-right: 23px;
   }
+
   a {
     color: white;
     text-decoration: none;
@@ -18,9 +24,11 @@ const FooterWrapper = styled.footer`
     &:focus {
       opacity: .5;
     }
+
     span {
       text-decoration: underline;
     }
+
   }
 `;
 

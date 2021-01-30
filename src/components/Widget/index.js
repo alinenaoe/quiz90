@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Widget = styled.div`
-  /* margin-top: 24px; */
+  margin-top: 24px;
   margin-bottom: 24px;
   background-color: ${({ theme }) => theme.colors.mainBg};
   border-radius: 8px;

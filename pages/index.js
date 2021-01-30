@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-array-index-key */
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import { motion } from 'framer-motion';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Input from '../src/components/Input';
-// import Footer from '../src/components/Footer';
+import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
@@ -31,7 +31,16 @@ export default function Home() {
       <QuizBackground backgroundImage={db.bg}>
         <QuizContainer>
           <QuizLogo />
-          <Widget>
+          <Widget
+            as={motion.section}
+            transition={{ delay: 0.2, duration: 0.3 }}
+            variants={{
+              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: '100%' },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Widget.Header>
               <h1>{db.title}</h1>
             </Widget.Header>
@@ -39,7 +48,7 @@ export default function Home() {
               <p>{db.description}</p>
               <form onSubmit={(e) => {
                 e.preventDefault();
-                router.push('/quiz');
+                router.push(`/quiz?name=${name}`);
               }}
               >
                 <Input
@@ -47,42 +56,18 @@ export default function Home() {
                   name="nome"
                   value={name}
                   onChange={handleInputChange}
-                  placeholder="Nome do jogador"
+                  placeholder="Digite aqui seu nome"
                   spellcheck="false"
                   autoFocus
+                  autoComplete="off"
                 />
                 <Button type="submit" disabled={name.length === 0}>JOGAR</Button>
               </form>
             </Widget.Content>
           </Widget>
 
-          <Widget>
-            <Widget.Content>
-              <h1>Quizes da Galera</h1>
-
-              {db.external.map((linkExterno, index) => {
-                const [projectName, githubUser] = linkExterno
-                  .replace(/\//g, '')
-                  .replace('https:', '')
-                  .replace('.vercel.app', '')
-                  .split('.');
-
-                return (
-
-                  <Link href={`/quiz/${projectName}___${githubUser}`} key={`link__${index}`} passHref>
-                    <Widget.Topic>
-                      {`${githubUser}/${projectName}`}
-                    </Widget.Topic>
-
-                  </Link>
-
-                );
-              })}
-
-            </Widget.Content>
-          </Widget>
-          {/* <Footer /> */}
         </QuizContainer>
+        <Footer />
         <GitHubCorner projectUrl="https://github.com/alinenaoe" />
       </QuizBackground>
     </>

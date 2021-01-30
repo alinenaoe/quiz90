@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 import React from 'react';
+import Link from 'next/link';
 
 function Logo() {
   return (
-    <Title>QUIZ ANOS 90</Title>
+    <Link href="/" passHref>
+      <Title>SUPER ALURA QUIZ</Title>
+    </Link>
   );
 }
 
@@ -17,9 +20,11 @@ const QuizLogo = styled(Logo)`
   }
 `;
 
-const Title = styled.h1`
-  font-family: 'Bungee Shade', cursive;
-  font-size: 36px;
+const Title = styled.a`
+  font-family: 'Fredoka One', cursive;
+  font-size: 40px;
+  margin: 30px 0;
+  text-shadow: 2px 2px ${({ theme }) => theme.colors.secondary};
 `;
 
 export default QuizLogo;

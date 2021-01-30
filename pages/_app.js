@@ -10,20 +10,24 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body, input {
     margin: 0;
     padding: 0;
     /* New styles */
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
     // Deixa branco no começo
     color: ${({ theme }) => theme.colors.contrastText};
   }
 
   html, body {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.contrastText};
   }
 
   #__next {
@@ -40,7 +44,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
