@@ -1,5 +1,8 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/no-array-index-key */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import db from '../db.json';
@@ -57,7 +60,25 @@ export default function Home() {
             <Widget.Content>
               <h1>Quizes da Galera</h1>
 
-              <p>lorem ipsum dolor sit amet...</p>
+              {db.external.map((linkExterno, index) => {
+                const [projectName, githubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
+
+                return (
+
+                  <Link href={`/quiz/${projectName}___${githubUser}`} key={`link__${index}`} passHref>
+                    <Widget.Topic>
+                      {`${githubUser}/${projectName}`}
+                    </Widget.Topic>
+
+                  </Link>
+
+                );
+              })}
+
             </Widget.Content>
           </Widget>
           {/* <Footer /> */}

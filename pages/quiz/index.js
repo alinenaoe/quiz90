@@ -2,16 +2,16 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import GitHubCorner from '../src/components/GitHubCorner';
-import Button from '../src/components/Button';
-import LoadingWidget from '../src/components/LoadingWidget';
-import QuizResult from '../src/components/QuizResult';
-import AlternativesForm from '../src/components/AlternativesForm';
+import db from '../../db.json';
+import Widget from '../../src/components/Widget';
+import QuizLogo from '../../src/components/QuizLogo';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import GitHubCorner from '../../src/components/GitHubCorner';
+import Button from '../../src/components/Button';
+import LoadingWidget from '../../src/components/LoadingWidget';
+import QuizResult from '../../src/components/QuizResult';
+import AlternativesForm from '../../src/components/AlternativesForm';
 
 function QuestionWidget({
   question, questionIndex, totalQuestions, onSubmit, addResult,
