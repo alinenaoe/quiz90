@@ -104,8 +104,8 @@ export default function QuizPage({ externalQuizData, externalBg }) {
   const [result, setResult] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
-  const question = externalQuizData.questions[questionIndex];
-  const totalQuestions = externalQuizData.questions.length;
+  const question = externalQuizData[questionIndex];
+  const totalQuestions = externalQuizData.length;
   const bg = externalBg;
 
   function addResult(isCorrect) {
@@ -117,7 +117,7 @@ export default function QuizPage({ externalQuizData, externalBg }) {
   useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 2 * 1000);
+    }, 2000);
   }, []);
 
   function handleSubmitQuiz() {
@@ -148,10 +148,12 @@ export default function QuizPage({ externalQuizData, externalBg }) {
         </QuizContainer>
       )}
       {screenState === screenStates.LOADING && (
-        <QuizContainer>
-          <QuizLogo />
+        <>
+          <QuizContainer>
+            <QuizLogo />
+          </QuizContainer>
           <LoadingWidget />
-        </QuizContainer>
+        </>
       )}
       {screenState === screenStates.RESULT && (
         <QuizContainer>
