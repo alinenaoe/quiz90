@@ -6,7 +6,10 @@ import QuizScreen from '../../src/screens/Quiz';
 export default function OtherQuizes({ externalQuizData }) {
   return (
     <ThemeProvider theme={externalQuizData.theme}>
-      <QuizScreen externalQuizData={externalQuizData} />
+      <QuizScreen
+        externalQuizData={externalQuizData.questions}
+        externalBg={externalQuizData.bg}
+      />
     </ThemeProvider>
   );
 }

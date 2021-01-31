@@ -23,7 +23,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        <h3>
+        <h3 style={{ marginTop: 0 }}>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
       </Widget.Header>

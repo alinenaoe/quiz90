@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+
 import Widget from '../Widget';
 import db from '../../../db.json';
 
@@ -13,7 +16,16 @@ export default function QuizResult({ result }) {
 
   return (
     <>
-      <Widget>
+      <Widget
+        as={motion.section}
+        transition={{ delay: 0.5, duration: 0.35 }}
+        variants={{
+          show: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: '100%' },
+        }}
+        initial="hidden"
+        animate="show"
+      >
         <Widget.Header>
           {result === 0 && (
             <h1>{playerName}, você não acertou nenhuma :( <br />
@@ -23,10 +35,23 @@ export default function QuizResult({ result }) {
           {result !== 0 && (
             <h1>{playerName}, você acertou {result} pergunta{result !== 1 ? 's' : ''}</h1>
           )}
+
+          <Link href="/" passHref>
+            <a style={{ marginTop: 20 }}>Refazer quiz!</a>
+          </Link>
         </Widget.Header>
       </Widget>
 
-      <Widget>
+      <Widget
+        as={motion.section}
+        transition={{ delay: 0.8, duration: 0.5 }}
+        variants={{
+          show: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: '100%' },
+        }}
+        initial="hidden"
+        animate="show"
+      >
         <Widget.Content>
           <h1>Quer mais quiz? </h1>
           <ul>
@@ -39,7 +64,7 @@ export default function QuizResult({ result }) {
 
               return (
                 <li key={linkExterno}>
-                  <Link href={`/quiz/${projectName}___${githubUser}?name=${name}`}>
+                  <Link href={`/quiz/${projectName}___${githubUser}`}>
                     <Widget.Topic>
                       {`${githubUser}/${projectName}`}
                     </Widget.Topic>

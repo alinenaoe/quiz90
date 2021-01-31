@@ -23,17 +23,22 @@ const Widget = styled.div`
 
 Widget.Header = styled.header`
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
 
-  * {
-    margin: 0;
-  }
-
   h1 {
     line-height: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  a {
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -65,11 +70,6 @@ Widget.Topic = styled.a`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
-
-  &:hover,
-  &:focus {
-    opacity: .5;
-  }
 `;
 
 export default Widget;

@@ -10,6 +10,7 @@ const QuizBackground = styled.div`
 
   @media screen and (max-width: 500px) {
     background-image: none;
+    background-color: ${({ theme }) => theme.colors.secondaryTransparency};
 
     &:after {
       content: "";

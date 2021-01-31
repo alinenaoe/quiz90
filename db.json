@@ -6,11 +6,11 @@
       {
         "image": "https://img.buzzfeed.com/buzzfeed-static/static/2016-02/17/8/enhanced/webdr07/anigif_enhanced-21606-1455714447-14.gif",
         "title": "Qual era o tema de abertura da novela \"Mulheres de Areia\"?",
-        "description": "Essa é pra aquecer",
+        "description": "",
         "answer": 3,
         "alternatives": [
           "O Mar Serenou, de Clara Nunes",
-          "Caminhos do Mar Cantora: Gal Costa",
+          "Caminhos do Mar, de Gal Costa",
           "Unicamente, de Deborah Blando",
           "Sexy Yemanjá, de Pepeu Gomes"
         ]
@@ -31,7 +31,7 @@
         "image": "https://i.makeagif.com/media/5-12-2016/JyENFI.gif",
         "title": "Em que ano Fernando Collor de Mello foi afastado da presidência após denúncias de envolvimento em corrupção e fraudes financeiras?",
         "description": "Alô inflação!",
-        "answer": 2,
+        "answer": 1,
         "alternatives": [
           "1994",
           "1992",
@@ -49,6 +49,18 @@
           "Daniela Freitas",
           "Sheila Carvalho",
           "Débora Fernanda"
+        ]
+      },
+      {
+        "image": "https://media2.giphy.com/media/67ThRZlYBvibtdF9JH/giphy.gif?cid=ecf05e47pe5o4xn63ocw0r08pbcodxtdza4npg697rrbgb70&rid=giphy.gif",
+        "title": "Qual foi a primeira animação da história a arrecadar mais de 1 bilhão (de dólares!!)?",
+        "description": "",
+        "answer": 1,
+        "alternatives": [
+          "Vida de Inseto",
+          "Toy Story",
+          "Ratatouille",
+          "Procurando Nemo"
         ]
       }
     ],

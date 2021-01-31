@@ -11,6 +11,10 @@ const FooterWrapper = styled.footer`
   bottom: 0;
   width: 100vw;
 
+  @media screen and (max-width: 500px) {
+    border-radius: 0;
+  }
+
   img {
     width: 58px;
     margin-right: 23px;
