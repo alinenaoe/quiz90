@@ -12,7 +12,7 @@ import db from '../../../db.json';
 export default function QuizResult({ result }) {
   const router = useRouter();
   const { name } = router.query;
-  const playerName = name.charAt(0).toUpperCase() + name.slice(1);
+  const playerName = name ? name.charAt(0).toUpperCase() + name.slice(1) : 'Amigue';
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function QuizResult({ result }) {
             </h1>
           )}
           {result !== 0 && (
-            <h1>{playerName}, você acertou {result} pergunta{result !== 1 ? 's' : ''}</h1>
+            <h1>{playerName}, você acertou {result} pergunta{result !== 1 ? 's' : ''}!</h1>
           )}
 
           <Link href="/" passHref>
