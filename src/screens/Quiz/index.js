@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 
-// import db from '../../db.json';
 import Widget from '../../components/Widget';
 import QuizLogo from '../../components/QuizLogo';
 import QuizBackground from '../../components/QuizBackground';
@@ -24,7 +23,6 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        {/* <BackLinkArrow href="/" */}
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -61,13 +59,23 @@ function QuestionWidget({
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
+            let dataStatus = 'NEUTRAL';
+
+            if (isConfirmed && isCorrect) {
+              dataStatus = 'SUCCESS';
+            } else if (isConfirmed && !isCorrect) {
+              dataStatus = 'ERROR';
+            } else {
+              dataStatus = 'NEUTRAL';
+            }
+
             return (
               <Widget.Topic
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
                 data-selected={selectedAlternative === alternativeIndex}
-                data-status={isConfirmed && isCorrect ? 'SUCCESS' : 'ERROR'}
+                data-status={dataStatus}
               >
                 <input
                   style={{
@@ -77,6 +85,8 @@ function QuestionWidget({
                   name={questionId}
                   type="radio"
                   onChange={() => setSelectedAlternative(alternativeIndex)}
+                  value={alternativeIndex}
+                  checked={alternativeIndex === selectedAlternative}
                 />
                 {alternative}
               </Widget.Topic>
@@ -85,9 +95,9 @@ function QuestionWidget({
           <Button type="submit" disabled={selectedAlternative === undefined}>
             Confirmar
           </Button>
-          {isCorrect && isConfirmed && <p>Certa resposta!</p>}
-          {!isCorrect && isConfirmed && <p>Errrrrrooooou!</p>}
         </AlternativesForm>
+        {isCorrect && isConfirmed && <h1 style={{ textAlign: 'center', marginTop: 20 }}>Certa resposta!</h1>}
+        {!isCorrect && isConfirmed && <h1 style={{ textAlign: 'center', marginTop: 20 }}>Errrrrrooooou!</h1>}
       </Widget.Content>
     </Widget>
   );
@@ -126,9 +136,10 @@ export default function QuizPage({ externalQuizData, externalBg }) {
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(questionIndex + 1);
     } else {
+      setScreenState(screenStates.LOADING);
       setTimeout(() => {
         setScreenState(screenStates.RESULT);
-      }, 2000);
+      }, 3000);
     }
   }
 
@@ -162,7 +173,7 @@ export default function QuizPage({ externalQuizData, externalBg }) {
         </QuizContainer>
       )}
 
-      <GitHubCorner projectUrl="https://github.com/alinenaoe" />
+      <GitHubCorner projectUrl="https://github.com/alinenaoe/quiz90" />
     </QuizBackground>
   );
 }

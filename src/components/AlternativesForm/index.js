@@ -21,6 +21,10 @@ const AlternativesForm = styled.form`
   button {
     margin-top: 24px;
   }
+
+  input {
+    display: none;
+  }
 `;
 
 export default AlternativesForm;
