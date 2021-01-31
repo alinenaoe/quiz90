@@ -4,32 +4,60 @@
     "description": "Quem está jogando?",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
+        "image": "https://img.buzzfeed.com/buzzfeed-static/static/2016-02/17/8/enhanced/webdr07/anigif_enhanced-21606-1455714447-14.gif",
+        "title": "Qual era o tema de abertura da novela \"Mulheres de Areia\"?",
         "description": "Essa é pra aquecer",
-        "answer": 2,
+        "answer": 3,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "O Mar Serenou, de Clara Nunes",
+          "Caminhos do Mar Cantora: Gal Costa",
+          "Unicamente, de Deborah Blando",
+          "Sexy Yemanjá, de Pepeu Gomes"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
+        "image": "https://media.tenor.com/images/9ba5e7dbce208f5da6500d9635a65aaf/tenor.gif",
+        "title": "Em 1991, Renato Aragão decidiu subir o Cristo Redentor para agradecer seu sucesso. O que ele fez quando subiu?",
+        "description": "",
+        "answer": 3,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+          "Colocou uma bandeira do Brasil nas costas do Cristo",
+          "Sentou nos ombros da estátua",
+          "Ele não subiu, acabou desistindo da empreitada",
+          "Beijou a mão direita do Cristo"
+        ]
+      },
+      {
+        "image": "https://i.makeagif.com/media/5-12-2016/JyENFI.gif",
+        "title": "Em que ano Fernando Collor de Mello foi afastado da presidência após denúncias de envolvimento em corrupção e fraudes financeiras?",
+        "description": "Alô inflação!",
+        "answer": 2,
+        "alternatives": [
+          "1994",
+          "1992",
+          "1996",
+          "1998"
+        ]
+      },
+      {
+        "image": "https://1.bp.blogspot.com/-SWAPlGqiXGg/XIqZH5qA9KI/AAAAAAAACbA/y0PPt2_5g3MZx_MBimy68TL6kJn0Rjn_wCLcBGAs/s1600/videotogif_2019.03.14_14.58.00.gif",
+        "title": "Em 1996, o Domingão do Faustão exibia a final do concurso para eleger a nova loira do Tchan, Sheila Mello. Quem ficou em segundo lugar?",
+        "description": "Ô loco meu!",
+        "answer": 1,
+        "alternatives": [
+          "Sara Verônica",
+          "Daniela Freitas",
+          "Sheila Carvalho",
+          "Débora Fernanda"
         ]
       }
     ],
     "external": [
       "https://aluraquiz-base.alura-challenges.vercel.app/",
-      "https://aluraquiz-css.omariosouto.vercel.app/",
-      "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
+      "https://aluraquiz-base.rodrigorrch.vercel.app/",
+      "https://covid-quiz.pedrofelipemm.vercel.app/",
+      "https://aluraquiz-coffee.leonardot07.vercel.app/",
+      "https://quiz-contemplese.ricardoltt.vercel.app/"
     ],
     "theme": {
       "colors": {
